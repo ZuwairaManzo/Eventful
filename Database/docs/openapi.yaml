@@ -1,0 +1,37 @@
+openapi: 3.0.0
+info:
+  title: Eventful API
+  version: 1.0.0
+  description: API documentation for the Eventful platform
+
+paths:
+  /auth/register:
+    post:
+      summary: Register a new user
+      requestBody:
+        # Add request body definition here
+      responses:
+        '201':
+          description: User registered successfully
+        # Add other responses here
+
+  /events:
+    post:
+      summary: Create a new event
+      security:
+        - bearerAuth: []
+      requestBody:
+        # Add request body definition here
+      responses:
+        '201':
+          description: Event created successfully
+        # Add other responses here
+
+# Add more API endpoints here
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
