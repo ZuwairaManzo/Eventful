@@ -1,0 +1,46 @@
+openapi: 3.0.3
+info:
+  title: Eventful API
+  version: 1.0.0
+  description: Eventful is a platform for event creators and attendees.
+
+servers:
+  - url: http://localhost:5000/api/v1
+
+paths:
+  /events:
+    get:
+      summary: Get a list of events
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventList'
+
+components:
+  schemas:
+    Event:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+        start_time:
+          type: string
+          format: date-time
+        end_time:
+          type: string
+          format: date-time
+        location:
+          type: string
+        creator_id:
+          type: integer
+    EventList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Event'
